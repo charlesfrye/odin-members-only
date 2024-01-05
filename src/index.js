@@ -75,7 +75,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(express.static("public"));
+const staticFolderPath = path.join(__dirname, "../public");
+console.log(`staticFolderPath: ${staticFolderPath}`);
+app.use("/static", express.static(staticFolderPath));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 

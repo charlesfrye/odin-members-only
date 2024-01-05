@@ -16,4 +16,9 @@ router.post(
   })
 );
 
+router.delete("/", async (req, res) => {
+  req.logout();
+  res.redirect("/");
+});
+
 export default router;
