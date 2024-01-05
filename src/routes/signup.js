@@ -2,6 +2,7 @@ import express from "express";
 import bcrypt from "bcryptjs";
 
 import models from "../models/";
+import expressAsyncHandler from "express-async-handler";
 
 const router = express.Router();
 
@@ -9,8 +10,9 @@ router.get("/", (req, res) => {
   res.render("signup_form", { title: "signup" });
 });
 
-router.post("/", async (req, res, next) => {
-  try {
+router.post(
+  "/",
+  expressAsyncHandler(async (req, res, next) => {
     const existingUser = await models.User.findOne({
       username: req.body.username
     });
@@ -33,9 +35,7 @@ router.post("/", async (req, res, next) => {
       await user.save();
       res.redirect("/login");
     });
-  } catch (err) {
-    next(err);
-  }
-});
+  })
+);
 
 export default router;

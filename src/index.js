@@ -86,6 +86,11 @@ app.use("/login", routes.login);
 app.use("/signup", routes.signup);
 app.use("/messages", routes.messages);
 
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send("Something broke!");
+});
+
 const eraseDatabaseOnSync = process.env.eraseDatabaseOnSync || false;
 
 connectDb().then(async () => {
