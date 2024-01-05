@@ -4,32 +4,32 @@
     <title><%= title %></title>
     <link rel="stylesheet" href="/static/css/compiled.css" />
   </head>
-  <body>
-    <h1 class="text-4xl"><%= title %></h1>
+  <body class="bg-gray-100 p-12">
+    <h1 class="text-4xl text-blue-500 font-semibold mb-4"><%= title %></h1>
     <% if (currentUser) { %>
-    <p>Welcome to <%= title %>, <%= currentUser.username %>.</p>
-    <form method="delete" action="/login">
-      <button type="submit">Log Out</button>
-    </form>
+    <p class="text-2xl text-gray-700 mb-4">Welcome to <%= title %>, <%= currentUser.username %>.</p>
 
-    <form method="post" action="/messages" class="mt-4">
-      <input type="text" name="text" />
-      <input type="submit" value="post" />
+    <form method="post" action="/messages" class="mt-4 mb-4">
+      <input type="text" name="text" class="border-2 border-gray-300 p-2 rounded mr-2" />
+      <input type="submit" value="post" class="btn"/>
     </form>
       <% if (messages.length) { %>
-      <ul class="messages">
+      <ul class="list-none pl-5">
         <% messages.forEach(function(message) { %>
-        <li>
+        <li class="mb-2">
           <% if (currentUser.canSeeNames) { %>
-          <p class="inline"><%=message.user.username %>:
-          <% } else { %>
-          <p class="inline">???:
+          <p class="inline text-gray-800 font-semibold"><%=message.user.username %>:
+          <% } else { %></p>
+          <p class="inline text-gray-800 font-semibold">???:</p>
           <% } %>
-          <%= message.text %></p>
+          <p class="inline"><%= message.text %></p>
         </li>
         <% }); %>
       </ul>
       <% } %>
+      <form method="delete" action="/login" class="mt-4">
+        <button type="submit" class="btn">log out</button>
+      </form>
     <% } else {%>
     <p>Please <a href="/signup">sign up</a> or <a href="/login">log in</a> to view messages.</p>
     <% } %>
