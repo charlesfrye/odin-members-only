@@ -17,6 +17,13 @@
             placeholder="password"
             class="textField"
           />
+          <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            placeholder="confirm password"
+            class="textField"
+          />
         <div class="flex items-center justify-center w-full">
           <button class="btn text-2xl" type="submit">
             sign up
@@ -24,5 +31,8 @@
         </div>
       </form>
     </div>
+    <% if (locals.error) { %>
+      <%- include('partials/error.ejs', {error: error}) %>
+    <% } %>
 </body>
 </html>
