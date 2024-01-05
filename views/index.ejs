@@ -1,9 +1,6 @@
 <!doctype html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel="stylesheet" href="/static/css/compiled.css" />
-  </head>
+  <%- include('partials/head.ejs') %>
   <body class="bg-gray-100 p-12">
     <h1 class="text-4xl text-blue-500 font-semibold mb-4"><%= title %></h1>
     <% if (currentUser) { %>

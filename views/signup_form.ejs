@@ -1,32 +1,28 @@
 <!doctype html>
-<div>
-  <head>
-    <title><%= title %></title>
-    <link rel="stylesheet" href="/static/css/compiled.css" />
-  </head>
-    <body class="bg-gray-100 flex items-center justify-center h-screen"></body>
-    <div class="w-full max-w-xs">
-      <form method="post" action="/signup" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 space-y-4">
-          <input
-            type="text"
-            id="username"
-            name="username"
-            placeholder="username"
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          />
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="password"
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          />
-        <div class="flex items-center justify-center w-full">
-          <button class="btn text-2xl" type="submit">
-            sign up
-          </button>
-        </div>
-      </form>
-    </div>
-  </body>
+  <%- include('partials/head.ejs') %>
+  <body class="bg-gray-100 flex items-center justify-center h-screen"></body>
+  <div class="w-full max-w-xs">
+    <form method="post" action="/signup" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 space-y-4">
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="username"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="password"
+          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        />
+      <div class="flex items-center justify-center w-full">
+        <button class="btn text-2xl" type="submit">
+          sign up
+        </button>
+      </div>
+    </form>
+  </div>
+</body>
 </html>
