@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <% if (currentUser) { %>
+    <p>Welcome to <%= title %>, <%= currentUser.username %>.</p>
+    <% } else {%>
+    <p>Please <a href="/signup">sign up</a> or <a href="/login">log in</a> to view messages.</p>
+    <% } %>
+  </body>
+</html>

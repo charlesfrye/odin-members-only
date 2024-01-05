@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Please sign up with a username and password.</p>
+    <form method="post" action="/signup">
+      <p>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="username"
+        />
+      </p>
+      <p>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="password"
+        />
+      </p>
+      <p>
+        <input type="submit" value="Sign Up" />
+      </p>
+    </form>
+  </body>
+</html>

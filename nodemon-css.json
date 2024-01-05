@@ -1,0 +1,5 @@
+{
+    "watch": ["tailwind.config.js", "postcss.config.js", "src/css/*.css", "views/**/*.ejs"],
+    "ext": "js,css,ejs",
+    "exec": "npm run build-css"
+  }
