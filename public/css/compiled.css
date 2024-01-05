@@ -522,6 +522,7 @@ a {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 body {
+  min-height: 100vh;
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
 }
