@@ -29,6 +29,10 @@ userSchema.statics.findByLogin = async function (login) {
   return user;
 };
 
+userSchema.virtual("canSeeNames").get(function () {
+  return this.membershipStatus === "admin" || this.membershipStatus === "write";
+});
+
 userSchema.pre("remove", function (next) {
   this.model("Message").deleteMany({ user: this._id }, next);
 });
