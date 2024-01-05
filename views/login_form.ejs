@@ -1,26 +1,22 @@
 <!doctype html>
 <html>
   <%- include('partials/head.ejs') %>
-  <body class="bg-gray-100 flex items-center justify-center h-screen">
+  <body class="formBody">
     <div class="w-fill max-w-xs">
-      <form
-        method="post"
-        action="/login"
-        class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 space-y-4"
-      >
+      <form method="post" action="/login" class="fieldForm">
         <input
           type="text"
           id="username"
           name="username"
           placeholder="username"
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          class="textField"
         />
         <input
           type="password"
           id="password"
           name="password"
           placeholder="password"
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          class="textField"
         />
         <div class="flex items-center justify-center w-full">
           <button class="btn text-2xl" type="submit" value="Login">

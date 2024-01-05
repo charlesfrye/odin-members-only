@@ -14,4 +14,20 @@
     a {
         @apply bg-blue-500 text-white px-2 py-0.5 font-bold rounded;
     }
+
+    .formBody {
+        @apply bg-gray-100 flex items-center justify-center h-screen
+    }
+
+    .textField {
+        @apply shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight;
+
+        &:focus {
+            @apply outline-none shadow-lg
+        }
+    }
+
+    .fieldForm {
+        @apply bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 space-y-4
+    }
 }
