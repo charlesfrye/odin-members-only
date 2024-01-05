@@ -25,11 +25,20 @@ router.post(
   })
 );
 
-router.delete(
-  "/",
+router.post(
+  "/out",
   expressAsyncHandler(async (req, res) => {
-    req.logout();
-    res.redirect("/");
+    req.logout((err) => {
+      if (err) {
+        return next(err);
+      }
+      req.session.destroy((err) => {
+        if (err) {
+          return next(err);
+        }
+        res.redirect("/");
+      });
+    });
   })
 );
 
