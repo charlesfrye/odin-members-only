@@ -34,4 +34,20 @@
     .fieldForm {
         @apply bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 space-y-4
     }
+
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0;
+        }
+    }
+
+    .fade-out {
+        @apply absolute top-0 right-0 m-4;
+        animation: fadeOut 3s ease-out 1;
+        animation-fill-mode: forwards;
+    }
 }

@@ -25,5 +25,8 @@
         </div>
       </form>
     </div>
+    <% if (locals.error) { %>
+      <%- include('partials/error.ejs', {error: error}) %>
+    <% } %>
   </body>
 </html>

@@ -32,5 +32,8 @@
         <p>Please <a href="/signup">sign up</a> or <a href="/login">log in</a> to view messages.</p>
       </div>
     <% } %>
+    <% if (locals.error) { %>
+      <%- include('partials/error.ejs', {error: error}) %>
+    <% } %>
   </body>
 </html>
