@@ -8,7 +8,11 @@ const router = express.Router();
 router.get(
   "/",
   expressAsyncHandler(async (req, res) => {
-    res.render("login_form", { title: "login" });
+    const errors = req.flash("error");
+    res.render("login_form", {
+      title: "login",
+      error: errors.length ? errors[0] : null
+    });
   })
 );
 
@@ -16,7 +20,8 @@ router.post(
   "/",
   passport.authenticate("local", {
     successRedirect: "/",
-    failureRedirect: "/login"
+    failureRedirect: "/login",
+    failureFlash: true
   })
 );
 

@@ -14,7 +14,10 @@ root.get(
     const allMessages = await models.Message.find()
       .sort({ createdAt: -1 })
       .populate("user");
-    res.render("index", { title: "The ClubHouse", messages: allMessages });
+    res.render("index", {
+      title: "The ClubHouse",
+      messages: allMessages
+    });
   })
 );
 

@@ -2,6 +2,7 @@ import "dotenv/config";
 import express from "express";
 import session from "express-session";
 import passport from "passport";
+import flash from "connect-flash";
 import { Strategy } from "passport-local";
 import morgan from "morgan";
 import helmet from "helmet";
@@ -38,6 +39,7 @@ app.use(
     saveUninitialized: true
   })
 );
+app.use(flash());
 passport.use(
   new Strategy(async (username, password, done) => {
     try {
@@ -76,7 +78,6 @@ app.use((req, res, next) => {
 });
 
 const staticFolderPath = path.join(__dirname, "../public");
-console.log(`staticFolderPath: ${staticFolderPath}`);
 app.use("/static", express.static(staticFolderPath));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
