@@ -1,7 +1,6 @@
 import express from "express";
 import expressAsyncHandler from "express-async-handler";
-import passport from "passport";
-import models from "../models/";
+import models from "../models";
 
 const router = express.Router();
 
