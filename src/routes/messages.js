@@ -12,7 +12,7 @@ router.post(
     }
     const user = await models.User.findById(req.user.id);
     if (user.membershipStatus === "read") {
-      res.redirect("/");
+      res.redirect("/signup/promote");
     } else {
       const message = new models.Message({
         user: req.user.id,
