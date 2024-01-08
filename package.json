@@ -28,6 +28,7 @@
     "express-session": "^1.17.3",
     "express-validator": "^7.0.1",
     "helmet": "^7.1.0",
+    "moment": "^2.30.1",
     "mongoose": "^8.0.3",
     "morgan": "^1.10.0",
     "passport": "^0.7.0",
@@ -51,7 +52,10 @@
     "node": "18.x"
   },
   "jest": {
-    "testPathIgnorePatterns": ["/node_modules/", "/dist/"],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/"
+    ],
     "verbose": true
   }
 }

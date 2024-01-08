@@ -673,9 +673,21 @@ body {
 .p-2 {
   padding: 0.5rem;
 }
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
 .px-4 {
   padding-left: 1rem;
   padding-right: 1rem;
+}
+.py-0 {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.py-0\.5 {
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
 }
 .py-3 {
   padding-top: 0.75rem;
@@ -698,9 +710,17 @@ body {
 .font-semibold {
   font-weight: 600;
 }
+.text-amber-300 {
+  --tw-text-opacity: 1;
+  color: rgb(252 211 77 / var(--tw-text-opacity));
+}
 .text-blue-500 {
   --tw-text-opacity: 1;
   color: rgb(59 130 246 / var(--tw-text-opacity));
+}
+.text-gray-500 {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
 }
 .text-gray-700 {
   --tw-text-opacity: 1;
@@ -713,6 +733,9 @@ body {
 .text-red-700 {
   --tw-text-opacity: 1;
   color: rgb(185 28 28 / var(--tw-text-opacity));
+}
+.underline {
+  text-decoration-line: underline;
 }
 @media (min-width: 640px) {
 

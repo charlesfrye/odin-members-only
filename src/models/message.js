@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import moment from "moment";
 
 const messageSchema = new mongoose.Schema(
   {
@@ -10,6 +11,11 @@ const messageSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
+messageSchema.virtual("when").get(function () {
+  const whenStamp = moment(this.updatedAt || this.createdAt);
+  return whenStamp.fromNow();
+});
 
 const Message = mongoose.model("Message", messageSchema);
 
