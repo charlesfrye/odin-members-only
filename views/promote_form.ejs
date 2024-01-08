@@ -1,0 +1,24 @@
+<!doctype html>
+  <%- include('partials/head.ejs') %>
+  <body class="formBody">
+    <div class="w-full max-w-xs">
+      <form method="post" action="/signup/promote" class="fieldForm">
+          <input
+            type="password"
+            id="secret"
+            name="secret"
+            placeholder="enter the secret here"
+            class="textField"
+          />
+        <div class="flex items-center justify-center w-full">
+          <button class="btn text-2xl" type="submit">
+            let me in
+          </button>
+        </div>
+      </form>
+    </div>
+    <% if (locals.error) { %>
+      <%- include('partials/error.ejs', {error: error}) %>
+    <% } %>
+</body>
+</html>

@@ -7,8 +7,8 @@ import models from "../models";
 
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.render("signup_form", { title: "signup" });
+router.get("/", (_req, res) => {
+  res.render("signup_form", { title: "sign up" });
 });
 
 router.post(
@@ -26,7 +26,7 @@ router.post(
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       res.render("signup_form", {
-        title: "signup",
+        title: "sign up",
         error: errors.array()[0].msg
       });
     }
@@ -36,7 +36,7 @@ router.post(
     });
     if (existingUser) {
       res.render("signup_form", {
-        title: "signup",
+        title: "sign up",
         error: "Username taken"
       });
     }
@@ -52,6 +52,48 @@ router.post(
       await user.save();
       res.redirect("/login");
     });
+  })
+);
+
+router.get(
+  "/promote",
+  expressAsyncHandler(async (req, res) => {
+    if (!req.user) {
+      res.redirect("/login");
+    }
+    res.render("promote_form", { title: "get promoted" });
+  })
+);
+
+router.post(
+  "/promote",
+  body("secret")
+    .trim()
+    .isLength({ min: 1 })
+    .withMessage("the secret is required"),
+  expressAsyncHandler(async (req, res, _next) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      res.render("promote_form", {
+        title: "get promoted",
+        error: errors.array()[0].msg
+      });
+    }
+
+    const user = await models.User.findById(req.user.id);
+
+    if (req.body.secret === process.env.WRITE_SECRET) {
+      user.membershipStatus = "write";
+    } else if (req.body.secret === process.env.ADMIN_SECRET) {
+      user.membershipStatus = "admin";
+    } else {
+      res.render("promote_form", {
+        title: "get promoted",
+        error: "not the secret"
+      });
+    }
+    await user.save();
+    res.redirect("/");
   })
 );
 
