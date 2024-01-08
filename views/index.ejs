@@ -17,9 +17,9 @@
           <% const textDecoration = currentUser.id === message.user.id ? ' underline' : '' %>
           <% const usernameColor = message.user.isAdmin ? 'text-amber-300' : '' %>
           <% if (currentUser.canSeeNames) { %>
-          <p class="inline <%=usernameColor%> font-semibold px-2 py-0.5"><%=message.user.username %>
+            <p class="inline <%=usernameColor%> font-semibold px-2 py-0.5"><%=message.user.username %>
           <% } else { %></p>
-          <p class="inline text-gray-800 font-semibold">???</p>
+            <p class="inline text-gray-800 font-semibold">???</p>
           <% } %>
           <p class="inline text-gray-500 px-2 py-0.5"><%=message.when %></p>
           <p class="inline <%=textDecoration%>"><%= message.text %></p>
