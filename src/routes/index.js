@@ -4,13 +4,13 @@ import login from "./login";
 import signup from "./signup";
 import messages from "./messages";
 
-import models from "../models/";
+import models from "../models";
 
 const root = express.Router();
 
 root.get(
   "/",
-  expressAsyncHandler(async function (req, res, next) {
+  expressAsyncHandler(async (_req, res) => {
     const allMessages = await models.Message.find()
       .sort({ createdAt: -1 })
       .populate("user");

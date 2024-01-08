@@ -1,6 +1,5 @@
 import express from "express";
 import expressAsyncHandler from "express-async-handler";
-import { User } from "../models/";
 import passport from "passport";
 
 const router = express.Router();
@@ -27,14 +26,14 @@ router.post(
 
 router.post(
   "/out",
-  expressAsyncHandler(async (req, res) => {
-    req.logout((err) => {
-      if (err) {
-        return next(err);
+  expressAsyncHandler(async (req, res, next) => {
+    req.logout((errLogout) => {
+      if (errLogout) {
+        next(errLogout);
       }
-      req.session.destroy((err) => {
-        if (err) {
-          return next(err);
+      req.session.destroy((errSession) => {
+        if (errSession) {
+          next(errSession);
         }
         res.redirect("/");
       });

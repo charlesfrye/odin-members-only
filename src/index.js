@@ -87,7 +87,7 @@ app.use("/login", routes.login);
 app.use("/signup", routes.signup);
 app.use("/messages", routes.messages);
 
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
   console.error(err.stack);
   res.status(500).send("Something broke!");
 });
