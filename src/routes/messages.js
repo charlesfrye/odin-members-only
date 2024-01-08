@@ -24,4 +24,15 @@ router.post(
   })
 );
 
+router.get(
+  "/:id/delete",
+  expressAsyncHandler(async (req, res) => {
+    if (!req.user || !req.user.isAdmin) {
+      res.redirect("/login");
+    }
+    await models.Message.findByIdAndDelete(req.params.id);
+    res.redirect("/");
+  })
+);
+
 export default router;
