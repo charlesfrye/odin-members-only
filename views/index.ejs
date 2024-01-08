@@ -23,6 +23,9 @@
           <% } %>
           <p class="inline text-gray-500 px-2 py-0.5"><%=message.when %></p>
           <p class="inline <%=textDecoration%>"><%= message.text %></p>
+          <% if (currentUser.isAdmin) { %>
+            <a href="/messages/<%= message.id %>/delete" class="text-red-500 ml-8">delete</a>
+          <% } %>
         </li>
         <% }); %>
       </ul>
