@@ -15,7 +15,7 @@
         <% messages.forEach(function(message) { %>
         <li class="mb-2">
           <% const textDecoration = currentUser.id === message.user.id ? ' underline' : '' %>
-          <% const usernameColor = message.user.membershipStatus === 'admin' ? 'text-amber-300' : '' %>
+          <% const usernameColor = message.user.isAdmin ? 'text-amber-300' : '' %>
           <% if (currentUser.canSeeNames) { %>
           <p class="inline <%=usernameColor%> font-semibold px-2 py-0.5"><%=message.user.username %>
           <% } else { %></p>

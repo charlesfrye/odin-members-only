@@ -33,6 +33,10 @@ userSchema.virtual("canSeeNames").get(function () {
   return this.membershipStatus === "admin" || this.membershipStatus === "write";
 });
 
+userSchema.virtual("isAdmin").get(function () {
+  return this.membershipStatus === "admin";
+});
+
 userSchema.pre("remove", function (next) {
   this.model("Message").deleteMany({ user: this._id }, next);
 });
